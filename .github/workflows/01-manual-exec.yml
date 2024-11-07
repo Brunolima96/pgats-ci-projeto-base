@@ -20,19 +20,19 @@ jobs:
     # passo a passo das acoes do job
     steps:
 
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
    # - uses: actions/setup-node@v4
    #   with:
    #     node-version:çts/*
-    - name: Instalando Yarn
-      run: npm install -g yarn
+      - name: Instalando Yarn
+        run: npm install -g yarn
 
-    - name: Instalando depedências
-      run: yarn
+      - name: Instalando depedências
+        run: yarn
     
-    - name: Instalando Playwright
-      run: yarn playwright
+      - name: Instalando Playwright
+        run: yarn playwright install
     
-    - name: Testes E2E (end-to-end)
-      run: yarn run e2e
+      - name: Testes E2E (end-to-end)
+        run: yarn run e2e
