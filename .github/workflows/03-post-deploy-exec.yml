@@ -1,13 +1,14 @@
-#CI De Nível 01 - Disparo manual a partir de 1 clique
+#CI De Nível 03 - Disparo automaticos sempre que outro for concluido, como deploy
 
 # Nome que vai aparecer la nas opções de pipe
-name: 'Execução Manual'
+name: 'Execução por deploy'
 
 # Triggers ou gatilhos de execução
-  #gatilho de exec manual = workflow_dispatch
+  #gatilho de exec manual = workflow_run
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: ['Execução Manual']
 
 jobs:
 

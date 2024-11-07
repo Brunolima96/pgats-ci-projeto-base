@@ -1,0 +1,12 @@
+cron POSIX
+
+a -> minuto
+b -> hora
+c -> dias do mês
+d -> meses do ano
+e -> dias da semana
+
+rodar toda segunda-feira, ás 08h da manhã
+
+a b c d e
+0 8 * * 1

@@ -1,13 +1,14 @@
-#CI De Nível 01 - Disparo manual a partir de 1 clique
+#CI De Nível 03 - Disparo automaticos em periodo especificos
 
 # Nome que vai aparecer la nas opções de pipe
-name: 'Execução Manual'
+name: 'Execução Agendada'
 
-# Triggers ou gatilhos de execução
-  #gatilho de exec manual = workflow_dispatch
+#  Peróodos
+  #gatilho de exec manual = workflow_schedule
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * 1'
 
 jobs:
 
