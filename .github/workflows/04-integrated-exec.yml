@@ -30,11 +30,27 @@ jobs:
 #      - name: Padronização de código Lint
 #        run: yarn lint
 
+  unit: 
+    runs-on: 'ubuntu-latest'
+    needs: [inspection]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalando Yarn
+        run: npm install-g yarn
+
+      - name: Instalando as dependências
+        run: yarn
+
+      - name: Testes de unidade
+        run: yarn run test
+
   # descricao do job
   e2e-tests:
 
     # maquina que o job vai executar
     runs-on: ['ubuntu-latest']
+    needs: [unit]
 
     # passo a passo das acoes do job
     steps:
@@ -66,3 +82,19 @@ jobs:
         with:
           name: relatorio-de-testes
           path: ./playwright-report
+  deploy:
+
+    # maquina que o job vai executar
+    runs-on: ['ubuntu-latest']
+    needs: [e2e-tests]
+
+    # passo a passo das acoes do job
+    steps:
+
+      
+
+   # - uses: actions/setup-node@v4
+   #   with:
+   #     node-version:çts/*
+      - name: Deploy
+        run: echo "step deploy"
