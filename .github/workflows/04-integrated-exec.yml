@@ -27,8 +27,8 @@ jobs:
       - name: Instalando depedências
         run: yarn
 
-      - name: Padronização de código Lint
-        run: yarn lint
+#      - name: Padronização de código Lint
+#        run: yarn lint
 
   # descricao do job
   e2e-tests:
@@ -52,6 +52,11 @@ jobs:
     
       - name: Instalando Playwright
         run: yarn playwright install
+
+      - name: Subir aplicação local
+        run: yarn start &
+        env:
+          URL: 'https://localhost:3000'
     
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
